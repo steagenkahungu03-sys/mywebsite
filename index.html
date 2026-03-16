@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️</title>
+
+<style>
+
+body{
+margin:0;
+background:linear-gradient(to bottom,#000000,#1a001a);
+font-family:Arial, sans-serif;
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+h1{
+margin-top:60px;
+font-size:48px;
+color:#ff4da6;
+text-shadow:0 0 15px pink;
+}
+
+.gallery{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:25px;
+padding:40px;
+}
+
+.gallery img{
+width:250px;
+height:320px;
+object-fit:cover;
+border-radius:15px;
+box-shadow:0 0 20px pink;
+transition:0.4s;
+}
+
+.gallery img:hover{
+transform:scale(1.08);
+box-shadow:0 0 35px #ff4da6;
+}
+
+button{
+background:#ff4da6;
+border:none;
+padding:15px 30px;
+font-size:18px;
+border-radius:12px;
+cursor:pointer;
+color:white;
+box-shadow:0 0 10px pink;
+}
+
+button:hover{
+background:#ff0066;
+}
+
+#message{
+display:none;
+font-size:30px;
+margin-top:25px;
+color:#ff80bf;
+text-shadow:0 0 10px pink;
+}
+
+/* hearts */
+
+.heart{
+position:fixed;
+top:-10px;
+font-size:22px;
+color:red;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Smile, you're beautiful 😍</h1>
+
+<div class="gallery">
+
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+
+</div>
+
+<button onclick="showMessage()">Click me 😊</button>
+
+<p id="message">You are beautiful and amazing ❤️</p>
+
+<script>
+
+function showMessage(){
+document.getElementById("message").style.display="block";
+}
+
+function createHeart(){
+
+const heart = document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(Math.random()*3+2)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},5000);
+
+}
+
+setInterval(createHeart,250);
+
+</script>
+
+</body>
+</html>
